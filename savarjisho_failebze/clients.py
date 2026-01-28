@@ -1,0 +1,143 @@
+# დავალება:
+# clients.txt ფაილში მოცემულია მომხმარებლების სახელი და გვარი, email, საცხოვრებელი ქვეყანა
+# და დაბადების თარიღი, რომლებიც ერთმანეთისგან გამოყოფილია წერტილ-მძიმით. დაწერეთ
+# პროგრამა, რომელიც ფაილიდან წაიკითხავს მონაცემებს და  შეასრულებს შემდეგ ოპერაციებს:
+# ა) მეორე (ახალ) ფაილში ჩაწერეთ მხოლოდ იმ მომხრებლების  სახელი და გვარი,
+# რომლებიც ცხოვრობენ ესპანეთში ან გერმანიაში.
+# ბ) შექმენით სია, რომლის ელემენტებია იმ მომხმარებლების email-ები, რომლებიც
+# დაბადებული არიან 2011 წელს. დაბეჭდეთ სია.
+# გ) შექმენით სია, რომლის ელემენტები იქნება clients.txt ფაილში არსებული ქვეყნის
+# დასახელებები. გაითვალისწინეთ, რომ სიაში არ იყოს განმეორებითი ელემენტები.
+tertmetianebi = []
+qveynebi = []
+clients = """
+Amber Sweeney;mauris.blandit.mattis@enim.net;India;08/31/2014
+Tanner Fisher;gravida.Praesent.eu@eueuismod.ca;Spain;03/25/2001
+Macey Haney;Cras.pellentesque.Sed@faucibusMorbivehicula.org;Poland;04/04/2001
+Amir Nichols;adipiscing@sitametultricies.edu;Brazil;12/03/1993
+Oliver Conway;semper.pretium.neque@magnaPraesentinterdum.ca;Austria;10/03/2003
+Mona Finch;purus.mauris.a@liberoProin.org;France;10/23/1998
+Eugenia Guerrero;felis.Donec.tempor@bibendum.com;Sweden;03/01/2005
+Berk Horton;nisi@tincidunt.co.uk;India;09/16/1993
+Jenette Chen;metus.vitae@id.co.uk;Italy;11/01/1993
+Deborah Morales;adipiscing.non.luctus@eros.co.uk;Poland;09/30/2011
+Charissa Jacobs;tempor.bibendum.Donec@sitamet.org;Germany;09/24/2016
+Ronan Nieves;pede.Cras.vulputate@eutelluseu.edu;France;05/31/1995
+Emerson Spencer;pede.nonummy.ut@dolordolortempus.co.uk;Brazil;06/30/1992
+Orlando Reyes;ac@molestiedapibus.co.uk;Poland;11/14/1990
+Roanna Smith;tincidunt@felisDonectempor.ca;Spain;08/17/2011
+Kelsie Garza;sed.hendrerit@ametornare.ca;Peru;05/01/2003
+Beau Hickman;ipsum.cursus@nuncnulla.edu;India;09/19/2004
+Laura Powers;tempus@pedemalesuada.co.uk;India;10/06/2003
+Kasimir Chaney;ipsum@Proinsed.org;Peru;07/06/2000
+Raya Vargas;dictum@quisurnaNunc.edu;Canada;12/11/2012
+Felicia Mosley;felis.ullamcorper.viverra@dolornonummy.edu;Netherlands;04/01/1990
+Brady Stephens;cursus.luctus.ipsum@disparturientmontes.ca;Austria;11/05/1992
+Chelsea Maxwell;purus.sapien@Sedmolestie.ca;Austria;11/30/1996
+Lavinia Craft;cursus.vestibulum@vestibulummassa.com;Germany;04/14/2011
+Ella Logan;rhoncus.Proin.nisl@utsem.com;Poland;10/08/2010
+Risa Watts;purus.mauris@sitamet.co.uk;Austria;12/18/1994
+Herman Moore;magnis@atnisi.net;Poland;08/01/1998
+Basia Valencia;lacus.Ut@lacus.com;Germany;05/09/1991
+MacKensie Case;magna@sit.com;India;12/31/2002
+Claudia Hayden;vestibulum.neque@magna.edu;Canada;04/28/1995
+Sade Hurst;ligula.Aliquam@estNunclaoreet.com;Italy;05/09/2009
+Lev Landry;ipsum@mollisDuis.ca;Sweden;05/09/2008
+Gay Duncan;amet.ultricies@duiSuspendisseac.co.uk;Sweden;04/27/1994
+Noble Parsons;rutrum.urna.nec@feugiatLorem.ca;France;11/13/1998
+Urielle French;sapien.Nunc.pulvinar@convallisin.org;Peru;06/03/2015
+Randall Clarke;at.sem@egestasrhoncusProin.edu;Peru;12/24/2002
+May Dotson;posuere.vulputate@eratSednunc.ca;India;06/30/1993
+Kerry Cantu;metus@lobortistellusjusto.edu;Netherlands;07/27/2017
+Lucian Delacruz;vulputate.eu@massa.co.uk;Italy;04/18/1990
+Emi Roth;Quisque@accumsaninterdum.net;India;05/14/2014
+Harlan Murphy;ornare.libero@consectetueradipiscing.ca;Canada;08/23/2005
+Ginger Noble;auctor.velit@sollicitudincommodo.net;Netherlands;12/01/2016
+Trevor Ewing;sodales.nisi.magna@in.org;Brazil;07/02/1996
+Beatrice Wooten;commodo.hendrerit@Mauris.co.uk;France;12/12/1999
+Xanthus Blevins;sem@Sedeu.org;Brazil;10/02/1998
+Kai Garner;lacus@vitaeorciPhasellus.co.uk;Italy;12/06/1999
+Berk Chambers;nibh.lacinia.orci@sitametorci.org;Italy;05/14/1998
+Jared Paul;tincidunt.tempus@Suspendissesagittis.org;Sweden;06/10/1999
+Moses Garcia;auctor.non@Donecelementumlorem.edu;Italy;03/31/2017
+Amanda Henderson;sodales.Mauris.blandit@natoquepenatibus.net;Spain;03/28/2002
+Hermione Burke;sed.pede@Aliquamadipiscinglobortis.com;Canada;10/25/2007
+Haviva Edwards;orci.quis.lectus@luctusipsumleo.net;France;09/07/2016
+Illana Ware;Quisque.porttitor@sedpedenec.net;Sweden;06/27/2011
+Chava Wise;a.aliquet@nislMaecenasmalesuada.edu;Netherlands;01/31/1993
+Xerxes Whitfield;odio.a.purus@nequepellentesquemassa.edu;Canada;02/07/1997
+Jerry Shields;ullamcorper.nisl@sagittisaugue.net;Sweden;07/18/2009
+Kendall Coffey;Donec@Phasellusfermentumconvallis.net;Germany;10/03/2009
+Zephr Waters;Vestibulum@tellussemmollis.edu;France;03/06/2014
+Aubrey Gill;lectus.rutrum.urna@Loremipsum.edu;Netherlands;09/09/2009
+Calista Osborn;id@habitantmorbi.co.uk;Canada;04/27/2000
+Cairo Bryan;penatibus.et.magnis@augueut.com;Netherlands;08/06/1995
+Keegan Nguyen;vitae.erat@Namconsequat.edu;Spain;07/02/1992
+Autumn Davenport;magnis.dis.parturient@elitpharetraut.edu;Italy;01/18/1992
+Ava Castillo;sagittis.augue@rhoncus.com;Canada;12/31/1990
+Karen Jefferson;enim.Mauris.quis@egestasAliquamnec.co.uk;France;06/22/2007
+Alexander Willis;et.ultrices.posuere@eu.org;Sweden;11/15/1995
+Dawn Santana;vitae.purus@ac.ca;Netherlands;09/02/2002
+Darrel Langley;pharetra.sed@hymenaeosMauris.edu;Spain;05/19/2011
+Galvin Bryan;non@Namnullamagna.org;Italy;12/08/1999
+Porter Burton;egestas@ultricessitamet.com;Brazil;02/04/1991
+Isaac Richard;parturient@arcu.org;Poland;04/24/2009
+Jane Reeves;egestas.Sed.pharetra@adipiscing.net;Netherlands;08/11/1994
+Zephania Stark;mauris@quamelementumat.com;Italy;03/03/2010
+Eric Dawson;est.arcu@Donecdignissim.org;Brazil;05/09/1996
+Laith Boone;enim.Etiam.imperdiet@Donecnon.com;Netherlands;12/12/2003
+Audra Delacruz;penatibus@dictumauguemalesuada.org;Brazil;06/24/2007
+Cally Bowen;at@Fuscedolor.com;Canada;06/27/2001
+Channing Palmer;amet@Curabituregestasnunc.com;Netherlands;04/04/1997
+Bruce Lott;amet.consectetuer@a.edu;France;12/26/1995
+Neil Leblanc;in@egetnisi.org;Sweden;07/07/2013
+Faith Bolton;vel.nisl@egetipsum.edu;Sweden;11/15/2013
+Ivory Ashley;amet.orci.Ut@nec.net;India;08/29/1990
+Kirsten Deleon;Vivamus.nibh.dolor@Integer.ca;Peru;01/04/1991
+Jennifer Ellison;cursus.Integer.mollis@orciadipiscingnon.org;Germany;04/12/2014
+Camden Thomas;parturient.montes.nascetur@aliquetmagna.edu;Sweden;12/05/2014
+Ali Obrien;Nullam.vitae.diam@variusultricesmauris.net;India;10/01/1992
+Sawyer Hendricks;diam.Proin@Integer.net;Poland;05/07/1993
+Alexander Burt;Vivamus.molestie@nonsapienmolestie.net;France;09/16/2016
+Pamela Perez;nisi.magna.sed@risus.ca;Germany;05/17/2017
+Axel Vang;ornare.elit.elit@Sedmolestie.net;India;02/23/1993
+Hadassah Haney;Nulla.interdum@nibhvulputate.org;India;05/29/2005
+Benjamin Hayes;in@auctorullamcorper.edu;France;02/04/1996
+Xena Montoya;nec.urna@sedsem.net;Poland;08/08/2009
+Garth Noble;lectus@Praesentinterdum.net;France;07/09/1991
+Zachery Whitney;ullamcorper.Duis.at@mi.edu;India;08/14/1998
+Justin Warren;ipsum.dolor.sit@anteVivamusnon.org;Canada;11/30/1996
+Jamal Sheppard;eu.euismod@facilisis.org;Sweden;09/29/1997
+Macaulay Weeks;lobortis.quis.pede@tristiquepharetraQuisque.edu;Brazil;02/17/1995
+Naomi Zamora;ipsum.dolor.sit@ametdapibusid.net;Spain;03/29/1993
+Calista Crawford;nec.imperdiet.nec@ac.edu;Brazil;05/31/1993
+"""
+# ბ) შექმენით სია, რომლის ელემენტებია იმ მომხმარებლების email-ები, რომლებიც
+# დაბადებული არიან 2011 წელს. დაბეჭდეთ სია.
+# გ) შექმენით სია, რომლის ელემენტები იქნება clients.txt ფაილში არსებული ქვეყნის
+# დასახელებები. გაითვალისწინეთ, რომ სიაში არ იყოს განმეორებითი ელემენტები.
+open("clients.txt", "w").write(clients)
+with open("clients.txt", "r") as f:
+    with open("ger_spa_clients.txt", "a") as f1:
+        for line in f:
+            client = line.strip().split(";")
+            if len(client) > 2 and (client[2] == "Germany" or client[2] == "Spain"):
+                    f1.write(client[0] + "\n")
+            if len(client) > 3:
+                 year = int(client[3].split("/")[2])
+                 if year == 2011:
+                    tertmetianebi.append(client[1])
+            if len(client) > 2:
+                qveynebi.append(client[2])
+
+
+print(tertmetianebi)
+print(list(set(qveynebi)))
+
+
+
+
+
+
+
+
