@@ -7,16 +7,15 @@ profiles = [
     {"name": "iago", "surname": "xvichia", "img": "cat.jpg", "role": "user"}
 ]
 movies = [
-    {"title": "12 Angry Man", "description": "magari filmia"},
-    {"title": "12 Angry Man2", "description": "zan magari filmia"},
-    {"title": "12 Angry Man3", "description": "zan zan magari filmia"}
+    {"title": "12 Angry Man", "description": "magari filmia", "img": "movie1.jpeg"},
+    {"title": "12 Angry Man2", "description": "zan magari filmia","img": "movie2.jpeg"},
+    {"title": "12 Angry Man3", "description": "zan zan magari filmia", "img": "movie3.jpeg"}
 
 ]
 
 @app.route("/")
 def home():
-    # for movie in movies:
-    #     print(movie["title"], movie["description"])
+
     return render_template("index.html", role="admin", movies=movies)
 
 
